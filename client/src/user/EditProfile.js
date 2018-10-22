@@ -1,15 +1,18 @@
 import React, {Component} from 'react'
-import {Panel, FormGroup, FormControl, ControlLabel, Button} from "react-bootstrap"
+import {Image, Panel, FormGroup, FormControl, ControlLabel, Button} from "react-bootstrap"
 import auth from './../auth/auth-helper'
 import {read, update} from './api-user.js'
 import {Redirect} from 'react-router-dom'
-import "./EditProfile.css";
+import "./EditProfile.css"
+//import avatar from './placeholder.jpg' 
 
 class EditProfile extends Component {
   constructor({match}) {
     super()
     this.state = {
       name: '',
+      about: '',
+      photo: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -20,6 +23,7 @@ class EditProfile extends Component {
   }
 
   componentDidMount = () => {
+    this.userData = new FormData()
     const jwt = auth.isAuthenticated()
     read({
       userId: this.match.params.userId
@@ -27,7 +31,7 @@ class EditProfile extends Component {
       if (data.error) {
         this.setState({error: data.error})
       } else {
-        this.setState({name: data.name, email: data.email})
+        this.setState({name: data.name, about:data.about, email: data.email})
       }
     })
   }
@@ -35,6 +39,7 @@ class EditProfile extends Component {
     const jwt = auth.isAuthenticated()
     const user = {
       name: this.state.name || undefined,
+      about: this.state.about || undefined,
       email: this.state.email || undefined,
       password: this.state.password || undefined
     }
@@ -42,11 +47,11 @@ class EditProfile extends Component {
       userId: this.match.params.userId
     }, {
       t: jwt.token
-    }, user).then((data) => {
+    }, this.userData).then((data) => {
       if (data.error) {
         this.setState({error: data.error})
       } else {
-        this.setState({'userId': data._id, 'redirectToProfile': true})
+        this.setState({'redirectToProfile': true})
       }
     })
   }
@@ -63,25 +68,69 @@ class EditProfile extends Component {
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
+      
     });
+  }
+
+  handleChangePhoto = event => {
+    this.userData.set(event.target.id, event.target.files[0])
+    this.setState({
+      [event.target.id]: event.target.files[0]
+      
+    });
+    console.log(event.target.id)
+    console.log(event.target.files[0])
   }
 
   render() {
 
+    const photoUrl = this.match.params.userId
+                 ? `/api/users/photo/${this.match.params.userId}?${new Date().getTime()}`
+                 : '/api/users/defaultphoto'
+
+//const photoUrl = `/api/users/photo/${this.match.params.userId}?${new Date().getTime()}`
+                 
+
+
+
     if (this.state.redirectToProfile) {
-      return (<Redirect to={'/user/' + this.state.userId}/>)
+      return (<Redirect to={'/user/' + this.match.params.userId}/>)
     }
     return (
       <div className="EditProfile">
       <Panel>
         <Panel.Heading>Edit Profile</Panel.Heading>
+        <div className="EditProfileImage">
+        <Image src={photoUrl} responsive rounded />
+        </div>
       <form>
+      
+      <FormGroup controlId="photo" bsSize="large">
+      <ControlLabel>Upload File</ControlLabel>
+      <FormControl
+      
+      type="file"
+      label="File"
+      onChange={this.handleChangePhoto}
+      
+      />
+    </FormGroup>
+    
       <FormGroup controlId="name" bsSize="large">
           <ControlLabel>Name</ControlLabel>
           <FormControl
             autoFocus
             type="name"
             value={this.state.name}
+            onChange={this.handleChange}
+          />
+      </FormGroup>
+      <FormGroup controlId="about" bsSize="large">
+          <ControlLabel>About</ControlLabel>
+          <FormControl
+            componentClass="textarea"
+            type="name"
+            value={this.state.about}
             onChange={this.handleChange}
           />
         </FormGroup>

@@ -48,7 +48,9 @@ class Profile extends Component {
         <div>
         <ListGroup>
           <ListGroupItem header={this.state.user.name}>{this.state.user.email}</ListGroupItem>
+          <ListGroupItem header="About">{this.state.user.about}</ListGroupItem>
             <ListGroupItem>{"Joined: " + (new Date(this.state.user.created)).toDateString()}</ListGroupItem>
+        
         </ListGroup>
       </div>
       <div>

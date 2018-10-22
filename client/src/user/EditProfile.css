@@ -12,10 +12,28 @@
       max-width: 320px;
       
     }
+
+    .EditProfile img{
+      max-height: 150px;
+      max-width: 150px;
+
+
+    }
+
+ 
   }
   
   .EditProfile form span.help-block {
     font-size: 14px;
     padding-bottom: 10px;
     color: #999;
+  }
+
+  .EditProfileImage{
+    display: flex;
+    justify-content:center;
+    padding: 20px;
+
+    
+    
   }

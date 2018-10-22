@@ -1,3 +1,18 @@
 {
-    "presets": ["env", "stage-2"]
+    "presets": ["env", "stage-2"],
+    "plugins": [
+        [
+          "file-loader",
+          {
+            "name": "[hash].[ext]",
+            "extensions": ["png", "jpg", "jpeg", "gif", "svg"],
+            "publicPath": "/client/assets/images",
+            "outputPath": "/client/assets/images",
+            "context": "",
+            "limit": 0
+          }
+        ]
+      ]
+    
+
    }

@@ -32,7 +32,7 @@ class Home extends Component {
         <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>MERN Skeleton App with Authentication and User CRUD API</p>
+          <p>Social Media App based on MERN Skeleton</p>
           <p>
               This is the Public Home Page.
           </p>
