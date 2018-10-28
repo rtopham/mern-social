@@ -1,0 +1,29 @@
+  .CommentAuthorImage{
+    float: left;
+    max-height: 25px;
+    max-width: 25px;
+    margin-right: 20px;
+
+  }
+
+  .FirstCollumn{
+
+    float: left;
+    min-width: 25px;
+    
+  }
+
+  .SecondCollumn{
+
+    float:left;
+    min-width: 25px;
+    
+
+  }
+
+  .ThirdCollumn{
+
+    float:right;
+    
+  }
+

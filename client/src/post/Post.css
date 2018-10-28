@@ -1,0 +1,44 @@
+  .PostAuthorImage{
+    float: left;
+    max-height: 25px;
+    max-width: 25px;
+/*    margin-right: 20px;*/
+
+  }
+
+  .PostPhoto{
+  
+  padding: 5px;
+  max-width: 600px;
+
+  }
+
+  .NewPostFileName{
+
+    margin-left: 10px;
+  }
+
+  .FirstCollumn{
+
+    float: left;
+    min-width: 25px;
+    
+  }
+
+  .SecondCollumn{
+
+    float:left;
+    min-width: 25px;
+    
+
+  }
+
+  .ThirdCollumn{
+
+    float:right;
+    
+  }
+
+  .post-panel-heading{
+    min-height: 60px;
+  }

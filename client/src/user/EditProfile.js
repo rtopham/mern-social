@@ -37,12 +37,12 @@ class EditProfile extends Component {
   }
   clickSubmit = () => {
     const jwt = auth.isAuthenticated()
-    const user = {
-      name: this.state.name || undefined,
-      about: this.state.about || undefined,
-      email: this.state.email || undefined,
-      password: this.state.password || undefined
-    }
+//    const user = {
+//      name: this.state.name || undefined,
+//      about: this.state.about || undefined,
+//      email: this.state.email || undefined,
+//      password: this.state.password || undefined
+//    }
     update({
       userId: this.match.params.userId
     }, {
@@ -129,7 +129,7 @@ class EditProfile extends Component {
           <ControlLabel>About</ControlLabel>
           <FormControl
             componentClass="textarea"
-            type="name"
+            type="text"
             value={this.state.about}
             onChange={this.handleChange}
           />

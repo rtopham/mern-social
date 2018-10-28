@@ -1,34 +1,33 @@
-import logo from '.././logo.svg';
 import React, {Component} from 'react'
+import logo from '.././logo.svg';
+import auth from './../auth/auth-helper'
+import FindPeople from './../user/FindPeople'
+import Newsfeed from './../post/Newsfeed'
+import "./Home.css"
 import '.././App.css';
 
 class Home extends Component {
-
-    state = {
-        response: ''
-      };
-    /*
-      componentDidMount() {
-    
-        this.callApi()
-          .then (res=> this.setState ({response:'nothing yet'}))
-          //.then(res => this.setState({ response: res.express }))
-          .catch(err => console.log(err));
- 
-      }
-    
-      callApi = async () => {
-        const response = await fetch('/api/hello');
-        const body = await response.json();
-    
-        if (response.status !== 200) throw Error(body.message);
-    
-        return body;
-      };
-*/
+  state = {
+    defaultPage: true
+  }
+  init = () => {
+    if(auth.isAuthenticated()){
+      this.setState({defaultPage: false})
+    }else{
+      this.setState({defaultPage: true})
+    }
+  }
+  componentWillReceiveProps = () => {
+    this.init()
+  }
+  componentDidMount = () => {
+    this.init()
+  }
   render() {
+
     return (
-        <div>
+      <div className="">
+        {this.state.defaultPage &&
         <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -43,11 +42,20 @@ class Home extends Component {
 
         </header>
       </div>
-          </div>
-        
+        }
+        {!this.state.defaultPage &&
+         <div className="Home">
+          <Newsfeed/>
+         
+         
+          <FindPeople/>
+              </div>
+                 }
+      </div>
     )
   }
 }
+
 
 
 export default Home

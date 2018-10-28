@@ -1,0 +1,43 @@
+@media all and (min-width: 480px) {
+    .FindPeople {
+ /*     padding: 60px 0px;*/
+      margin: 0 auto;
+      
+      
+    }
+
+
+    .FindPeople img{
+      max-height: 150px;
+      max-width: 100px;
+      margin-right: 20px;
+
+
+    }
+
+    .FindPeopleFloatRight{
+
+      float: right;
+    }
+  
+  }
+  
+
+  .FindPeople-glyph{
+    margin-left: 10px;
+
+  }
+
+  .FindPeopleImage{
+    display: flex;
+    justify-content:center;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 40px;
+    float: left;
+
+    
+    
+  }
+
+ 

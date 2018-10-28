@@ -1,0 +1,43 @@
+@media all and (min-width: 480px) {
+    .PostList {
+/*     padding: 60px 0px;*/
+      margin: 0 auto;
+      
+ /*     border: solid red;*/
+/*      min-height: 400px;*/
+    }
+
+
+    .PostList input {
+      display: none;
+    }
+
+    .panel-footer{
+      min-height: 50px;
+    }
+
+    .NewsfeedList{
+
+      float: right;
+    }
+  
+  }
+  
+  
+  .Newsfeed-glyph{
+    margin-left: 10px;
+
+  }
+
+  .PostListImage{
+    float: left;
+    max-height: 25px;
+    max-width: 25px;
+    margin-right: 20px;
+
+  }
+
+  .NewPostFileName{
+
+    margin-left: 10px;
+  }

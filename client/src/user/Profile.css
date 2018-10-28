@@ -2,9 +2,22 @@
     .Profile {
       padding: 60px 0px;
       margin: 0 auto;
-      max-width: 400px;
+      max-width: 600px;
       
     }
+/*
+    .Profile img{
+      max-height: 150px;
+      max-width: 125px;
+
+
+    }
+*/
+    .panel-footer{
+      min-height: 50px;
+    }
+
+
   
   }
   
@@ -12,9 +25,29 @@
     font-size: 14px;
     padding-bottom: 10px;
     color: #999;
+    
   }
 
   .Profile-glyph{
     margin-left: 10px;
 
+  }
+
+  .ProfileImage{
+    display: flex;
+    justify-content:center;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 40px;
+    float: left;
+    max-width: 75%
+
+    
+    
+  }
+
+  .ProfileList{
+
+    float:left;
+    min-width: 75%;
   }
